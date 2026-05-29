@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emarates PTFS | Flights</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Emarates PTFS</h1>
+        <p>Active Flight Operations</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="ife.html">IFE</a>
+        <a href="flights.html">Flights</a>
+        <a href="fleet.html">Our Fleet</a>
+        <a href="staff.html">Our Staff</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <main>
+        <section id="flight-manager">
+            <h2>Flight Schedule Manager</h2>
+            <p>Use the form below to update current active routes. Entries will be registered to the board automatically upon submission.</p>
+            
+            <form id="flightForm" onsubmit="event.preventDefault(); updateBoard();">
+                <input type="text" id="flightInput" placeholder="Enter new flight details (e.g. Flight 101 - Manila to Cebu)" style="width: 80%; padding: 10px; margin-bottom: 10px;" required>
+                <br>
+                <button type="submit" style="padding: 10px 20px;">Submit Flight</button>
+            </form>
+        </section>
+
+        <section id="flight-board">
+            <h2>Live Flight Board</h2>
+            <div id="board-content" style="padding: 20px; border: 2px dashed #d4af37; min-height: 100px; margin-top: 20px;">
+                <!-- Left blank as requested -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Emarates PTFS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateBoard() {
+            const input = document.getElementById('flightInput').value;
+            const board = document.getElementById('board-content');
+            
+            // Registering the new flight
+            const newEntry = document.createElement('p');
+            newEntry.textContent = "NEW FLIGHT REGISTERED: " + input;
+            board.appendChild(newEntry);
+            
+            // Clear input
+            document.getElementById('flightInput').value = '';
+            alert('Flight successfully registered to the board.');
+        }
+    </script>
+
+</body>
+</html>

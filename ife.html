@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emarates PTFS | In-Flight Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Emarates PTFS</h1>
+        <p>In-Flight Entertainment Portal</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="ife.html">IFE</a>
+        <a href="flights.html">Flights</a>
+        <a href="fleet.html">Our Fleet</a>
+        <a href="staff.html">Our Staff</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <main>
+        <section id="ife-intro">
+            <h2>Welcome to our IFE System</h2>
+            <p>Welcome aboard the Emarates PTFS In-Flight Entertainment system. We are dedicated to providing a high-fidelity experience that extends beyond the cockpit, ensuring our passengers and crew are engaged during every stage of the flight.</p>
+        </section>
+
+        <section id="mini-games">
+            <h2>In-Flight Arcade</h2>
+            <p>Take a break from the flight deck and sharpen your skills. Choose a game below to begin.</p>
+            
+            <div class="game-container" style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+                <button class="game-btn" onclick="startFlightQuiz()">Flight Quiz</button>
+                <button class="game-btn" onclick="startReactionTest()">Reaction Test</button>
+                <button class="game-btn" onclick="startMysteryGame()">Mystery Game</button>
+            </div>
+
+            <!-- This is where the games will display -->
+            <div id="quiz-area" style="margin-top: 20px; padding: 20px; border: 2px dashed #d4af37; min-height: 100px;">
+                <em>Select a game to see the interface.</em>
+            </div>
+        </section>
+
+        <section id="interactive">
+            <h2>Portal Features</h2>
+            <p>Our custom IFE portal allows you to access simulated content directly from your device. Whether you are browsing our digital flight map, checking arrival information, or exploring our entertainment library, the IFE is designed to complement your journey.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Emarates PTFS. All rights reserved.</p>
+        <p>Custom High-Fidelity Simulation</p>
+    </footer>
+
+    <script>
+        // --- Flight Quiz ---
+        function startFlightQuiz() {
+            const questions = [
+                "What is the standard cruising altitude for long-haul flights?",
+                "Which aircraft in our fleet is our flagship heavy?",
+                "What does PTFS stand for in our community?",
+                "Which Airbus model is known for its XWB efficiency?"
+            ];
+            const randomQ = questions[Math.floor(Math.random() * questions.length)];
+            document.getElementById('quiz-area').innerHTML = "<strong>Question:</strong> " + randomQ;
+        }
+
+        // --- Reaction Test ---
+        function startReactionTest() {
+            const area = document.getElementById('quiz-area');
+            area.innerHTML = "<div id='test-box' style='background:red; color:white; padding:20px; cursor:pointer; text-align:center;'>Wait for green...</div>";
+            
+            setTimeout(() => {
+                const box = document.getElementById('test-box');
+                box.style.background = 'green';
+                box.innerHTML = 'CLICK NOW!';
+                box.onclick = () => alert('Reaction registered! Well done.');
+            }, Math.random() * 3000 + 2000);
+        }
+
+        // --- Mystery Game ---
+        function startMysteryGame() {
+            const events = [
+                "Severe turbulence encountered! Initiating stabilization protocols.",
+                "Landing gear mechanical warning! Checking manual override systems.",
+                "Visibility dropping due to fog. Enabling high-precision ILS approach.",
+                "Unscheduled flight path change requested. Recalculating route."
+            ];
+            const randomEvent = events[Math.floor(Math.random() * events.length)];
+            alert("MYSTERY EVENT: " + randomEvent);
+        }
+    </script>
+</body>
+</html>
